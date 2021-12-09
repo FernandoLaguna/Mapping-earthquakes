@@ -39,7 +39,7 @@ let airportData = "https://raw.githubusercontent.com/FernandoLaguna/Mapping-eart
 
 // Grabbing our GeoJSON data.
 d3.json(airportData).then(function(data) {
-// Creating a GeoJSON layer with the retrieved data.
+// Creating a GeoJSON layer with the retrieved data. 
 L.geoJSON(data, {
   pointToLayer: function(feature, latlng) {
   console.log(feature);
