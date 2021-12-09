@@ -34,15 +34,21 @@ let map = L.map('mapid', {
 // When creating the Layers Control, the argument passed, baseMaps, is the base layer object
 L.control.layers(baseMaps).addTo(map);
 
-// Accessing the airport GeoJSON URL after the tile layer
+// Accessing the airport GeoJSON URL from Github "raw" after the tile layer
 let airportData = "https://raw.githubusercontent.com/FernandoLaguna/Mapping-earthquakes/main/majorAirports.json";
 
 // Grabbing our GeoJSON data.
 d3.json(airportData).then(function(data) {
-  console.log(data);
 // Creating a GeoJSON layer with the retrieved data.
-L.geoJSON(data).addTo(map);
+L.geoJSON(data, {
+  pointToLayer: function(feature, latlng) {
+  console.log(feature);
+  return L.marker(latlng)
+  .bindPopup(feature.properties.city)
+}
+}).addTo(map);
 });
+
 
 // Then we add our 'graymap' tile layer to the map.
 streets.addTo(map);
