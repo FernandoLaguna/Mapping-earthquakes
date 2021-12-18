@@ -71,18 +71,18 @@ L.geoJSON(data, {
         
         position: 'bottomright'});
 
-      // Then add all the details for the legend.
-      legend.onAdd = function () {
+  // Then add all the details for the legend.
+  legend.onAdd = function () {
       
-          let div = L.DomUtil.create('div', 'info legend'),
-          magnitudes = [0, 1, 2, 3, 4, 5];
-          colors = [
-            "#98ee00",
-            "#d4ee00",
-            "#eecc00",
-            "#ee9c00",
-            "#ea822c",
-            "#ea2c2c"
+        let div = L.DomUtil.create('div', 'info legend'),
+        magnitudes = [0, 1, 2, 3, 4, 5];
+        colors = [
+          "#98ee00",
+          "#d4ee00",
+          "#eecc00",
+          "#ee9c00",
+          "#ea822c",
+          "#ea2c2c"
           ];
              
       
@@ -96,7 +96,7 @@ for (var i = 0; i < magnitudes.length; i++) {
 return div;
 };
 
-legend.addTo(map); 
+legend.addTo(map);
       // This function returns the style data for each of the earthquakes we plot on
 // the map. We pass the magnitude of the earthquake into a function
 // to calculate the radius.
